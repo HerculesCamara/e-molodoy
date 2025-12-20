@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>É Molodoy ou não é?</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #1a1a1a;
+      color: #fff;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://static.draft5.gg/news/2025/11/07092355/FURIA-molodoy-IEM-Chengdu-2025.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 0.05;
+      z-index: -1;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 2rem;
+    }
+
+    .checkbox-container {
+      margin-bottom: 2rem;
+      font-size: 1.5rem;
+    }
+
+    input[type="checkbox"] {
+      width: 25px;
+      height: 25px;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+
+    button {
+      padding: 15px 40px;
+      font-size: 1.5rem;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #45a049;
+    }
+
+    #resultado {
+      margin-top: 2rem;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #4CAF50;
+    }
+  </style>
+</head>
+<body>
+  <h1>É Molodoy ou não é?</h1>
+
+  <div class="checkbox-container">
+    <input type="checkbox" id="molodoy">
+    <label for="molodoy">É molodoy</label>
+  </div>
+
+  <button onclick="confirmar()">Confirmar</button>
+
+  <div id="resultado"></div>
+
+  <script>
+    function confirmar() {
+      const checkbox = document.getElementById('molodoy');
+      const resultado = document.getElementById('resultado');
+
+      if (!checkbox.checked) {
+        checkbox.checked = true;
+        const frases = [
+          'Tá duvidando? É molodoy nessa porra!!!',
+          'É molodoy nessa porra!!!',
+          'Não tem essa não, É molodoy nessa porra!!!',
+          'Pensou que ia escapar? É molodoy nessa porra!!!',
+          'Sempre foi molodoy nessa porra!!!'
+        ];
+        const fraseAleatoria = frases[Math.floor(Math.random() * frases.length)];
+        resultado.textContent = fraseAleatoria;
+      } else {
+        resultado.textContent = 'É molodoy!!!';
+      }
+    }
+  </script>
+</body>
+</html>
