@@ -3,7 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>É Molodoy ou não é?</title>
+
+  <!-- SEO Básico -->
+  <title>É Molodoy ou não é? - Meme Counter-Strike Brasil</title>
+  <meta name="description" content="É molodoy ou não é? Descubra se é molodoy nessa porra! Meme icônico da comunidade brasileira de Counter-Strike. Teste agora!">
+  <meta name="keywords" content="molodoy, counter strike, cs, cs2, csgo, meme cs, comunidade cs brasil, é molodoy, counter strike brasil">
+  <meta name="author" content="E-Molodoy">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://emolodoy.herculescamara.com/">
+  <meta property="og:title" content="É Molodoy ou não é? - Meme Counter-Strike">
+  <meta property="og:description" content="É molodoy ou não é? Descubra se é molodoy nessa porra! Meme icônico da comunidade brasileira de Counter-Strike.">
+  <meta property="og:image" content="https://static.draft5.gg/news/2025/11/07092355/FURIA-molodoy-IEM-Chengdu-2025.jpg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://emolodoy.herculescamara.com/">
+  <meta property="twitter:title" content="É Molodoy ou não é? - Meme Counter-Strike">
+  <meta property="twitter:description" content="É molodoy ou não é? Descubra se é molodoy nessa porra!">
+  <meta property="twitter:image" content="https://static.draft5.gg/news/2025/11/07092355/FURIA-molodoy-IEM-Chengdu-2025.jpg">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://emolodoy.herculescamara.com/">
+
   <style>
     body {
       display: flex;
@@ -16,6 +40,8 @@
       background: #1a1a1a;
       color: #fff;
       position: relative;
+      padding: 1rem;
+      box-sizing: border-box;
     }
 
     body::before {
@@ -36,6 +62,7 @@
     h1 {
       font-size: 3rem;
       margin-bottom: 2rem;
+      text-align: center;
     }
 
     .checkbox-container {
@@ -70,6 +97,45 @@
       font-size: 2rem;
       font-weight: bold;
       color: #4CAF50;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      .checkbox-container {
+        font-size: 1.2rem;
+      }
+
+      button {
+        font-size: 1.2rem;
+        padding: 12px 30px;
+      }
+
+      #resultado {
+        font-size: 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      .checkbox-container {
+        font-size: 1rem;
+      }
+
+      button {
+        font-size: 1rem;
+        padding: 10px 25px;
+      }
+
+      #resultado {
+        font-size: 1.2rem;
+      }
     }
   </style>
 </head>
