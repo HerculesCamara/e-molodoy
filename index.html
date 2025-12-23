@@ -103,6 +103,25 @@
       text-align: center;
     }
 
+    #contador {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 15px 20px;
+      border-radius: 10px;
+      font-size: 1.2rem;
+      z-index: 100;
+    }
+
+    #contador .numero {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #4CAF50;
+      display: block;
+      text-align: center;
+    }
+
     @media (max-width: 768px) {
       h1 {
         font-size: 2rem;
@@ -118,6 +137,15 @@
       }
 
       #resultado {
+        font-size: 1.5rem;
+      }
+
+      #contador {
+        font-size: 0.9rem;
+        padding: 10px 15px;
+      }
+
+      #contador .numero {
         font-size: 1.5rem;
       }
     }
@@ -139,10 +167,26 @@
       #resultado {
         font-size: 1.2rem;
       }
+
+      #contador {
+        font-size: 0.8rem;
+        padding: 8px 12px;
+        top: 10px;
+        right: 10px;
+      }
+
+      #contador .numero {
+        font-size: 1.2rem;
+      }
     }
   </style>
 </head>
 <body>
+  <div id="contador">
+    <div>É molodoy:</div>
+    <span class="numero" id="total">0</span>
+  </div>
+
   <h1>É Molodoy ou não é?</h1>
 
   <div class="checkbox-container">
@@ -155,9 +199,32 @@
   <div id="resultado"></div>
 
   <script>
-    function confirmar() {
+    // Carregar contador global ao iniciar
+    window.addEventListener('DOMContentLoaded', async function() {
+      try {
+        const response = await fetch('/api/contador');
+        const data = await response.json();
+        document.getElementById('total').textContent = data.contador;
+      } catch (error) {
+        console.error('Erro ao carregar contador:', error);
+        document.getElementById('total').textContent = '0';
+      }
+    });
+
+    async function confirmar() {
       const checkbox = document.getElementById('molodoy');
       const resultado = document.getElementById('resultado');
+
+      // Incrementar contador global
+      try {
+        const response = await fetch('/api/contador', {
+          method: 'POST'
+        });
+        const data = await response.json();
+        document.getElementById('total').textContent = data.contador;
+      } catch (error) {
+        console.error('Erro ao incrementar contador:', error);
+      }
 
       if (!checkbox.checked) {
         checkbox.checked = true;
